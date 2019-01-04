@@ -21,6 +21,9 @@ namespace GrafFeladat_CSharp
             graf.Hozzaad(2, 4);
 
             Console.WriteLine(graf);
+            graf.SzelessegiBejar(3);
+            Console.WriteLine();
+            graf.MelysegiBejar(3);
             Console.ReadLine();
         }
     }
