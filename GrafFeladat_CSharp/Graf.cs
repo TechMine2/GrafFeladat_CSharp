@@ -173,7 +173,29 @@ namespace GrafFeladat_CSharp
         public Graf Feszitofa()
         {
             Graf fa = new GrafFeladat_CSharp.Graf(this.csucsokSzama);
+            List<int> bejart = new List<int>();
+            List<int> kovetkezok = new List<int>();
 
+            kovetkezok.Add(0);
+            bejart.Add(0);
+
+            while (kovetkezok.Count!=0)
+            {
+                int k = kovetkezok[0];
+                kovetkezok.RemoveAt(0);
+                foreach (var el in this.elek)
+                {
+                    if (el.Csucs1==k)
+                    {
+                        if (!bejart.Contains(el.Csucs2))
+                        {
+                            bejart.Add(el.Csucs2);
+                            kovetkezok.Add(el.Csucs1);
+                            fa.Hozzaad(el.Csucs1, el.Csucs2);
+                        }
+                    }
+                }
+            }
             return fa;
         }
 
